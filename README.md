@@ -1,26 +1,24 @@
 # Project_trolley
 วิธีใช้งานระบบรถเข็นจ่ายยา
-# Install Nodejs  for  Rasberry pi 
+Install Ubutu MATE 
+- link
+# 1. Install Nodejs  for  Rasberry pi 
 Step 1 Update System
-```bash
-sudo apt update
-```
-```bash
-sudo apt -y upgrade
-```
-Step 2: Add Node.js APT Repository
-```bash
-sudo apt update
-```
+- sudo apt update
+- sudo apt -y upgrade
 
-```bash
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-```
-```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-```
+Step 2: Add Node.js APT Repository
+- sudo apt update
+- sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+- curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
 Step 3: Install Node.js 12 
-```bash
-sudo apt -y install nodejs
-```
+- sudo apt -y install nodejs
+
+Step 4: nodejs -version
+- node --version
+# 2. Install Apache Mariadb Phpmyadmin
+# 3. Config Databases
+# 4. Connect PhpMyadmin
+# 3. Deploy Project
 
