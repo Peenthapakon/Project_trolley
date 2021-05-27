@@ -1,0 +1,20 @@
+
+sudo bluetoothctl 
+power on
+agent on
+default-agent
+scan on
+scan off
+trust
+pair
+connect (Success!)
+exit
+//  registor bluetooth
+sudo bluetoothctl 
+power on
+agent on
+scan on  หาเลข ip
+scan off หยุดค้นหา
+// connect bluetooth
+sudo rfcomm connect connect 98:D3:32:30:EB:EA
+sudo rfcomm bind hci0 98:D3:32:30:EB:EA 1

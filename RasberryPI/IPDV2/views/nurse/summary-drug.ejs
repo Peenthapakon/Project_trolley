@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link rel="icon" href="/images/wu.png">
+
+   
+    
+    <title>รถเข็นจ่ายยา</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <%- include ../core/navbar.ejs %>
+    <div class="container">
+        <hr>
+        <div class="row mt-md-3">
+            <div class="col-md-12">
+                <h4>สรุปการจ่ายยา</h4>
+                <hr>
+             
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example" class="table table-striped table-bordered " style="width:100%">
+                    <thead>
+                        <tr>
+                            <th><span class="custom-checkbox">
+                                <input type="checkbox" id="selectAll">
+                                <label for="selectAll"></label>
+                               </span></th>
+                            <th>HN</th>
+                            <th>ชื่อ-สกุล</th>
+                            <th>เตียง</th>
+                            <th class="bg-info">ทั้งหมด</th>
+                            <th class="bg-success">จ่าย</th>
+                            <th class="bg-warning">คืน</th>
+                            <th class="bg-warning">เลื่อนมื้อ</th>
+                            <th class="">เหลือ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i = 0; i < data.length; i++) {%>
+                         
+                            
+                        
+                        <tr>
+                            <td><span class="custom-checkbox">
+                                <input type="checkbox" id="selectAll">
+                                <label for="selectAll"></label>
+                               </span></td>
+                            <td><%=data[i].hn%></td>
+                            <td><%=data[i].fullname%></td>
+                            <td><%=data[i].bed%></td>
+                            <td><%=data[i].total%></td>
+                            <td ><%=data[i].dispensing%></td>
+                            <td><%=data[i].off%></td>
+                            <td><%=data[i].nextmeal%></td>
+                            <td ><%=data[i].total - data[i].dispensing%></td>
+                        </tr>
+                    <%} %>
+                    </tbody>
+       
+                </table>
+            </div>
+        </div>
+        
+        <hr>
+        <a class="btn btn-primary" href="/nurse ">ย้อนกลับ</a>
+    </div>
+    </div>
+ 
+    <script>
+
+    </script>
+</body>
+
+</html>
+

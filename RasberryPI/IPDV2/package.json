@@ -1,0 +1,42 @@
+{
+  "name": "newproject",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "csv-parser": "^3.0.0",
+    "ejs": "~2.6.1",
+    "exceljs": "^4.2.1",
+    "express-flash": "0.0.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.10.0",
+    "fast-csv": "^4.3.6",
+    "http-errors": "~1.6.3",
+    "iconv": "^3.0.0",
+    "jquery": "^3.5.1",
+    "json2csv": "^5.0.6",
+    "method-override": "^3.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "node-csv": "^0.1.2",
+    "node-fetch": "^2.6.1",
+    "node-gyp": "^7.1.2",
+    "node-pre-gyp": "^0.17.0",
+    "nodemon": "^2.0.7",
+    "python-shell": "^2.0.3",
+    "sequelize": "^6.5.1",
+    "sweetalert2": "^10.16.0",
+    "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.4",
+    "multer": "^1.4.2"
+  }
+}

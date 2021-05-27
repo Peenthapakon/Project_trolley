@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/images/wu.png">
+
+    <title>รถเข็นจ่ายยา</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <%- include ../core/navbar.ejs %>
+        <div class="container" id="meal">
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4>เมนูหน้าหลักผู้ป่วย</h4>
+                </div>
+               
+            </div>
+            <hr>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    
+                    <div class="card-trolley shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="/images/patient.jpeg" alt="" width="100%">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="card-text">HN:
+                                        <%=datamap[0].hnId%>
+                                    </p>
+                                    <p class="card-text">ชื่อสกุล:
+                                        <%=datamap[0].fullname%>
+                                    </p>
+                                    <p class="card-text">เตียง:
+                                        <%=datamap[0].bed%>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  
+                  
+       
+                    <div class="row ">
+
+
+
+                        <div class="col-md-3">
+                            <div class="card-trolley shadow-sm">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+    
+                                            <h6 for="">ทั้งหมด</h6>
+                                            <hr>
+                                            <% if (total) {%>
+                                            <%=total%>
+                                            <% } %>
+                                            รายการ
+    
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-3">
+                            <div class="card-trolley shadow-sm">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+    
+                                            <h6 for="">จ่าย</h6>
+                                            <hr>
+                                            <% if (dispensing) {%>
+                                            <%=dispensing%> รายการ
+                                            <% } %>
+                                            <% if (!dispensing) {%>
+                                            <%=0%> รายการ
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-trolley shadow-sm">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+    
+                                            <h6 for="">หยุด</h6>
+                                            <hr>
+                                            <% if (offdrug) {%>
+                                            <%=offdrug%> รายการ
+                                            <% } %>
+                                            <% if (!offdrug) {%>
+                                            <%=0%> รายการ
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-trolley shadow-sm">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+    
+                                            <h6 for="">เลื่อน</h6>
+                                            <hr>
+                                            <% if (nextmeal) {%>
+                                            <%=nextmeal%> รายการ
+                                            <% } %>
+                                            <% if (!nextmeal) {%>
+                                            <%=0%> รายการ
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-trolley shadow-sm">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+    
+                                            <h6 style="font-size: 12px;">เหลือในรถเข็น</h6>
+                                            <hr>
+                                            <%=total-dispensing%> รายการ
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+    
+                    </div>
+                </div>
+            </div>
+     
+             <%if(messages.success){%>
+                <div>
+                    <script>
+                        
+                                Swal.fire({
+                            
+                            icon: 'success',
+                            title: 'ทำรายการเสร็จสิ้น',
+                            text:'ทำรายการเสร็จสิ้น',
+                            showConfirmButton: true,
+                            timer: 1000
+                                })
+                            </script>
+                    </div>
+                     
+            
+             <%}%>
+             
+            
+            <hr>
+            <a class="btn btn-primary" href="/nurse">ย้อนกลับ</a>
+
+        </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("input").focus();
+        $("#btn").click(function () {
+            $(".drug").hide();
+
+        });
+        $("#1").click(function () {
+         
+            aler(1)
+        });
+        $("#2").click(function () {
+           alert(2)
+
+        });
+    });
+</script>
+
+</html>

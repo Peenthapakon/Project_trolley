@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/images/wu.png">
+
+    <title>รถเข็นจ่ายยา</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <%- include ../core/navbar.ejs %>
+        <div class="container" id="meal">
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4>เมนูหน้าหลักผู้ป่วย</h4>
+                </div>
+
+            </div>
+            ยามื้อ<% switch (mealScan) { 
+                case 'BB' :%>
+    <%="เช้าก่อนอาหาร"%>
+    <% break; 
+                case 'AB' :%>
+    <%="เช้าหลังอาหาร"%>
+    <% break; 
+                case 'BL' :%>
+    <%="เที่ยงก่อนอาหาร"%>
+    <%break; 
+                case 'AL' :%>
+    <%="เที่ยงหลังอาหาร"%>
+    <%break; 
+                case 'BD' :%>
+    <%="เย็นก่อนอาหาร"%>
+    <%break; 
+                case 'AD' :%>
+    <%="เย็นหลังอาหาร"%>
+    <%break; 
+                case 'BE' :%>
+    <%="ก่อนนอน"%>
+    <%break; } %>
+            <hr>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    
+                    <div class="card-trolley shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="/images/patient.jpeg" alt="" width="100%">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="card-text">HN:
+                                        <%=datamap[0].hnId%>
+                                    </p>
+                                    <p class="card-text">ชื่อสกุล:
+                                        <%=datamap[0].fullname%>
+                                    </p>
+                                    <p class="card-text">เตียง:
+                                        <%=datamap[0].bed%>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  
+                  
+                    <div class="row ">
+                               
+                                    
+                                
+                                <div class="col-md-3">
+                                    <div class="card-trolley shadow-sm">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                   
+                                                    <h6 for="">ทั้งหมด</h6>
+                                                    <hr>
+                                                    <% if (a) {%>
+                                                        <%=a%> 
+                                                    <% } %>
+                                                    รายการ
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+
+                                <div class="col-md-3">
+                                    <div class="card-trolley shadow-sm">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                   
+                                                    <h6 for="">จ่าย</h6>
+                                                    <hr>
+                                                    <% if (b) {%>
+                                                        <%=b%> รายการ
+                                                    <% } %> 
+                                                    <% if (!b) {%>
+                                                        <%=0%> รายการ
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-trolley shadow-sm">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                   
+                                                    <h6 style="font-size: 12px;">เหลือในรถเข็น</h6>
+                                                    <hr>
+                                                    <%=a-b%> รายการ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                                <div class="col-md-3">
+                                    <a  class="btn btn-primary" data-toggle="collapse" href="#allpatient" role="button" aria-expanded="false" aria-controls="allpatient"> 
+                                        รายการยาทั้งหมด
+                                    </a>
+                                  </div>
+                                  
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="ml-3 col-md-3">
+                  
+                        <form action="/nurse/p/<%=bed%>/<%=mealScan%>" method="POST">
+
+                            <div class="form-group  row" >
+                                <input type="search" name="drug" class="form-control col-md-9 " placeholder="รหัสซองยา" id="btn">
+                                <button  class="btn btn-outline-info col-md-3 " >ยืนยัน</button>
+                            </div>
+                        </form> 
+                </div>
+       
+            </div>
+            <% if(messages.error == 'nomeal1') {%>
+                <div class="alert alert-danger drug col-md-4" role="alert">
+                    รหัสซองยาไม่ถูกต้อง
+                </div>
+            <%}%>
+            <% if(messages.error == 'nomeal3') {%>
+                <div class="alert alert-danger drug col-md-4" role="alert">
+                   กรุณากรอกรหัสซองยา
+                </div>
+            <%}%>
+            <% if(messages.error == 'nomeal') {%>
+                <div class="alert alert-danger drug col-md-4" role="alert">
+                   ไม่มียามื้อนี้
+                </div>
+            <%}%>
+            <% if(messages.success) {%>
+                <div class="alert alert-success drug col-md-4" role="alert">
+                    ตรวจสอบรายการสำเร็จ
+                </div>
+            <%}%>
+            <!--แสดงยาbyid-->
+            <div class="row">
+                <% if (drugScan) {%>
+                <div class="col-md-12  drug " data-parent="#meal">
+                    <table class="table table-striped table-inverse table-responsive" >
+                        <thead class="thead-inverse text-center" width="100%">
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>ชื่อ</th>
+                                <th>มื้อ</th>
+                                <th>จำนวน</th>
+                                <th>จ่าย</th>
+                                
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center">
+                          
+                                <% for (let i = 0; i < drugScan.length; i++) {%>
+
+                                        <tr>
+                                            <td>
+                                                <%=i+1%>
+                                            </td>
+                                            <td scope="row">
+                                                <%=drugScan[i].name%>
+                                            </td>
+                                            <td>
+                                                <% switch (drugScan[i].meal) { 
+                                            case 'BB' :%>
+                                            <%='ก่อน /เช้า'%>
+                                            <% break; case 'AB' :%>
+                                            <%='หลัง /เช้า'%>
+                                            <% break; case 'BL' :%>
+                                            <%='ก่อน /เที่ยง'%>
+                                            <%break; case 'AL' :%>
+                                            <%='หลัง /เที่ยง'%>
+                                            <%break; case 'BD' :%>
+                                            <%='ก่อน /เย็น'%>
+                                            <%break; case 'AD' :%>
+                                            <%='หลัง /เย็น'%>
+                                            <%break; case 'BE' :%>
+                                            <%='ก่อนนอน'%>
+                                            <%break; } %>
+                                            </td>
+                                            <td>
+                                                <%=drugScan[i].unit%>
+                                            </td>
+
+
+                                            <td><a class="btn btn-success btn-sm"  href="/nurse/dispensing/<%=datamap[0].bed%>/<%=drugScan[i].packId%>/<%=mealScan%>">จ่าย</a></td>
+                                            
+                                        </tr>
+            
+                                    <%} %>
+                                       
+                                           
+                        </tbody>
+                    </table>
+                </div>
+                <%} %>
+            </div>
+            <% if (!drug) {%>
+                                                ไม่พบข้อมูล
+                                                <%} %>
+            <div class="row">
+                <!--มื้อเช้า-->
+                <div class="col-md-12 collapse " id="allpatient" data-parent="#meal">
+                    <table class="table table-striped table-inverse table-responsive" >
+                        <thead class="thead-inverse text-center" width="100%">
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>รหัสซองยา</th>
+                                <th>ชื่อ</th>
+                                <th>มื้อ</th>
+                                <th>จำนวน</th>
+                               
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center">
+                            <% if (datamap) {%>
+                                <% for (let i = 0; i < drug.length; i++) {%>
+
+
+                                        <tr>
+                                            <td>
+                                                <%=i+1%>
+                                            </td>
+                                            <td>
+                                                <%=drug[i].packId%>
+                                                </td>
+                                            <td scope="row">
+                                                <%=drug[i].name%>
+                                            </td>
+                                            <td>
+                                                <% switch (drug[i].meal) { 
+                                            case 'BB' :%>
+                                            <%='ก่อน /เช้า'%>
+                                            <% break; case 'AB' :%>
+                                            <%='หลัง /เช้า'%>
+                                            <% break; case 'BL' :%>
+                                            <%='ก่อน /เที่ยง'%>
+                                            <%break; case 'AL' :%>
+                                            <%='หลัง /เที่ยง'%>
+                                            <%break; case 'BD' :%>
+                                            <%='ก่อน /เย็น'%>
+                                            <%break; case 'AD' :%>
+                                            <%='หลัง /เย็น'%>
+                                            <%break; case 'BE' :%>
+                                            <%='ก่อนนอน'%>
+                                            <%break; } %>
+                                            </td>
+                                            <td>
+                                                <%=drug[i].unit%>
+                                            </td>
+
+                                        </tr>
+            
+                                    <%} %>
+                                        <%} %>
+                                            <% if (!drug) {%>
+                                                ไม่พบข้อมูล
+                                                <%} %>
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+            <hr>
+            <a class="btn btn-primary" href="/nurse">ย้อนกลับ</a>
+
+        </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $("input").focus();
+        $("#btn").click(function () {
+            $(".drug").hide();
+
+        });
+        $("#1").click(function () {
+         
+            aler(1)
+        });
+        $("#2").click(function () {
+           alert(2)
+
+        });
+    });
+</script>
+
+
+</html>

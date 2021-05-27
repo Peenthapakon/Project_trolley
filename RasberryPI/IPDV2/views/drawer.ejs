@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/images/wu.png">
+
+    <title>รถเข็นจ่ายยา</title>
+</head>
+
+<body>
+    <%- include ./core/navbar.ejs %>
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-md-4">
+                <form action="/drawer" method="POST">
+                    <button class="btn btn-info" type="submit">
+                  
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <img src="/images/find.png" alt="" >
+                                </div>
+                                <div class="col-md-9 mt-3 "> 
+
+                                    ค้นหาอุปกรณ์
+                                </div>
+                            </div>
+
+                
+                </button>
+                </form>
+                </div>
+                <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <% if (connect) {%>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-title">122</div>
+                                </div>
+                            </div>
+                        <%} %>
+                    </div>
+                   <div class="col-md-4">
+                    <% if (!connect) {%>
+                        <div class="card bg-danger" >
+                            <div class="card-body">
+                                <div class="card-title">122</div>
+                            </div>
+                        </div>
+                    <%} %>
+                   </div>
+                 
+                </div>
+              
+                </div>
+	            </div>
+            <% if (data) {%>
+                    
+        <% for (let i = 0; i < data.length; i++) {%>
+            <div class="row">
+             <div class="col-md-3">
+                 <div class="card card-trolley shadow">
+                     <div class="card-body">
+                         <div class="row">
+                            <div class="col-md-3 text-center">
+                                <img src="/images/bluetooth.png" alt="">
+                            </div>
+                            <div class="col-md-9 mt-3 text-center "> 
+                                <a class="h5" href="/connect<%=i+1%>/<%=data[i].code%>"><%=data[i].name%></a>
+                            </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+            </div>
+        <%} %>
+         <%} %>
+         <% if (!data) {%>
+             ไม่พบอุปกรณ์ โปรดค้นหาอุปกรณ์!!
+        <%} %>
+             <hr>
+             <a class="btn btn-primary" href="/">ย้อนกลับ</a>
+        </div>
+
+</body>
+
+</html>

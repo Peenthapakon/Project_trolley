@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link rel="icon" href="/images/wu.png">
+
+    <title>รถเข็นจ่ายยา</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <%- include ../core/navbar.ejs %>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <img src="/images/wu.png" alt="" width="50%">
+                </div>
+                
+                <div class="card-trolley ">
+                    <div class="card-body">
+                        <form action="/users/login" method="POST">
+                            <div class="form-group">
+                                <label for="username">ชื่อผู้ใช้</label>
+                                <input type="text" class="form-control btns" id="username"  name="username" >
+                                <% if (errors.username) { %>
+                                    <div class="error text-danger">*<%= errors.username.msg %></div>
+                                  <% } %>
+                              </div>
+                              <div class="form-group">
+                                <label for="password">รหัสผ่าน</label>
+                                <input type="password" class="form-control btns " id="pass"  name="password">
+                                <% if (errors.password) { %>
+                                    <div class="error text-danger">*<%= errors.password.msg %></div>
+                                <% } %>
+                            </div>
+                              <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+                              <button type="reset" class="btn btn-outline-danger">ยกเลิก</button>
+                        </form>
+                        <% if(messages.error){%>
+                            <div class="alert alert-danger drug "  role="alert">
+                                <div class="error text-danger">*<%= messages.error %></div>
+                            </div>
+                      <%}%>
+                      
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+        $(document).ready(function () {
+        
+        $(".btns").click(function () {
+            $(".drug").hide();
+
+        });
+    });
+</script>
+</html>
+

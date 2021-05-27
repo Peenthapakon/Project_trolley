@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/images/wu.png">
+
+    <title>รถเข็นจ่ายยา</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <%- include ../core/navbar.ejs %>
+    <div class="container" id="meal">
+        <hr>
+        <h5 class="text-right">
+            ผู้ใช้งาน:<%=user.fname +' '+ user.lname%>
+        </h5>
+        <hr>
+        <div class="row mt-md-3">
+            <div class="col-md-4">
+
+                <h4>รถเข็นจ่ายยา:
+                    <%=ward%>
+                </h4>
+                <h6>จำนวนผู้ป่วยทานยา
+                    <%=count%> เตียง</p>
+            </div>
+            <div class="col-md-8 text-right">
+
+
+
+                <!-- <button class="btn btn-primary shadow" onclick="window.location.href='nurse/checkhn' "><i
+                        class="bi bi-plus "></i>เมนูการจ่ายยา</button> -->
+                <button class="btn btn-success  shadow"
+                    onclick="window.location.href='nurse/summary' ">สรุปการจ่ายยา</button>
+                <button class="btn btn-oragne  shadow"
+                    onclick="window.location.href='nurse/summarydrug' ">สรุปการคืนยา</button>
+
+            </div>
+        </div>
+        <hr>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+            <a class="btn alldrug btn-outline-info" data-toggle="collapse" href="#allmeal"
+            aria-controls="nav-profile" aria-selected="true"id="hide">
+           
+                มื้อยาทั้งหมด
+                
+           
+            
+        </a>
+        </li>
+                        <% for (let i = 0; i < meal.length; i++) {%>
+           
+
+                   
+
+                            <% if (meal[i].data.length == 0) {%>
+                                <li class="nav-item">
+                                <a class="nav-link disabled " id="sub" data-toggle="collapse" href="#<%=meal[i].code%>1"
+                                    aria-controls="nav-profile" aria-selected="false"   >
+                                
+                                    <%=meal[i].name%>
+                                 <span class="badge badge-success badge-pill text-right"><%=meal[i].data.length%></span>
+                               </a>
+
+                             </a>  
+                            <%}else{%>
+                                <li class="nav-item">
+                                <a class="nav-link " id="sub2" data-toggle="collapse" href="#<%=meal[i].code%>1"
+                                    aria-controls="nav-profile" aria-selected="false" >
+                                
+                                    
+                                <%=meal[i].name%>
+                                 <span class="badge badge-danger badge-pill text-right"><%=meal[i].data.length%></span>
+                              
+                            </a>  
+                            </li>
+                           <% } %>
+                      
+                  
+
+
+              
+
+
+                <% } %>
+          </ul>
+         
+
+
+        
+        <!-- แสดงทั้งหมด-->
+        <div class="active collapse mt-3 show"  id="allmeal" data-parent="#meal"  >
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>ข้อมูลแสดงมื้อยาทั้งหมด</h4>
+                </div>
+            </div>
+            <hr>
+            <div class="row ">
+                
+                <% for (let i = 0; i < meal.length; i++) {%>
+                <div class="col-md-3 ">
+                    <div class=" card-trolley   shadow " >
+
+                        <div class="card-body">
+                            <div class="numbers">
+                                <a id="nav-profile-tab" data-toggle="collapse" href="#<%=meal[i].code%>" role="tab"
+                                    aria-controls="nav-profile" aria-selected="true">
+                                    <p class=" h6 ">
+                                        <%=meal[i].name%>
+                                    </p>
+                                </a>
+                                <p class=" card-category "> จำนวนผู้ป่วย
+                                    <% switch (meal[i].code) { 
+                                        case 'BB' :%>
+                                    <%=meal[i].data.length%>
+                                    <% break; 
+                                        case 'AB' :%>
+                                    <%=meal[i].data.length%>
+                                    <% break; 
+                                        case 'BL' :%>
+                                    <%=meal[i].data.length%>
+                                    <%break; 
+                                        case 'AL' :%>
+                                    <%=meal[i].data.length%>
+                                    <%break; 
+                                        case 'BD' :%>
+                                    <%=meal[i].data.length%>
+                                    <%break; 
+                                        case 'AD' :%>
+                                    <%=meal[i].data.length%>
+                                    <%break; 
+                                        case 'BE' :%>
+                                    <%=meal[i].data.length%>
+                                    <%break; } %>
+                                    คน</p>
+
+                                <p class=" card-category text-center ">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            
+            <!--แสดงตามมื้อ-->
+            <div class="col-md-3">
+                <div class=" card-trolley bg-primary   shadow ">
+
+                    <div class="card-body">
+                        <div class="numbers">
+                            <a id="allpa" data-toggle="collapse" href="#allpatient" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">
+                                <p class=" h6 text-white ">
+                                    เมนูเลื่อนยา/หยุดยา
+                                </p>
+                            </a>
+                            <p class=" card-category text-white ">
+                                จำนวนผู้ป่วย <%=fullhn.length%>
+                            </p>
+                            <p class=" card-category text-center ">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <!--<div class="col-md-4">
+            <div class=" card-trolley   shadow ">
+                <div class="card-body">
+                    <form action="/nurse/checkhn" method="POST">
+                <div class="form-group  row">
+                    <input type="search" name="hnId" class="form-control col-md-9 " placeholder="รหัสHN" id="btn">
+                    <button class="btn btn-outline-success col-md-3 sha">ยืนยัน</button>
+                </div>
+            </form>
+                </div>
+            </div>
+            
+            <%#if(messages.error){%>
+                <div class="alert alert-danger drug"  role="alert">
+                    <%#messages.error%>
+                </div>
+                <%#}%>
+        </div>
+         -->
+        </div>
+       
+
+    </div>
+
+
+    <!--แสดงตามมื้อ-->
+    <% for (let i = 0; i < meal.length; i++) {%>
+    
+    <div class="  collapse mt-3 " id="<%=meal[i].code%>1" data-parent="#meal" >
+        <h4 class="text-secondary">เมนูจ่ายยามื้อ 
+            <% switch (meal[i].code) { 
+            case 'BB' :%>
+<%="เช้าก่อนอาหาร"%>
+<% break; 
+            case 'AB' :%>
+<%="เช้าหลังอาหาร"%>
+<% break; 
+            case 'BL' :%>
+<%="เที่ยงก่อนอาหาร"%>
+<%break; 
+            case 'AL' :%>
+<%="เที่ยงหลังอาหาร"%>
+<%break; 
+            case 'BD' :%>
+<%="เย็นก่อนอาหาร"%>
+<%break; 
+            case 'AD' :%>
+<%="เย็นหลังอาหาร"%>
+<%break; 
+            case 'BE' :%>
+<%="ก่อนนอน"%>
+<%break; } %>
+            </h4>
+        <div class="row">
+         
+             <div class="col-md-4">
+             <div class=" card-trolley   shadow ">
+                <div class="card-body">
+                    <div class="numbers">
+                        <a id="nav-profile-tab" data-toggle="collapse" href="#<%=meal[i].code%>" role="tab"
+                            aria-controls="nav-profile" aria-selected="true">
+                            <p class=" h6 ">
+                                <%=meal[i].name%>
+                            </p>
+                        </a>
+                        <p class=" card-category  ">จำนวนผู้ป่วย
+                            <% switch (meal[i].code) { 
+                                                        case 'BB' :%>
+                            <%=meal[i].data.length%>
+                            <% break; 
+                                                        case 'AB' :%>
+                            <%=meal[i].data.length%>
+                            <% break; 
+                                                        case 'BL' :%>
+                            <%=meal[i].data.length%>
+                            <%break; 
+                                                        case 'AL' :%>
+                            <%=meal[i].data.length%>
+                            <%break; 
+                                                        case 'BD' :%>
+                            <%=meal[i].data.length%>
+                            <%break; 
+                                                        case 'AD' :%>
+                            <%=meal[i].data.length%>
+                            <%break; 
+                                                        case 'BE' :%>
+                            <%=meal[i].data.length%>
+                            <%break; } %>
+                        </p>
+                        <p class=" card-category text-center ">
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+         </div>
+        <h6 class="text-danger">
+            ป้อนรหัสผู้ป่วย*
+            </h6>
+         <div class="row">
+            <div class="col-md-4">
+            <div class=" card-trolley   shadow ">
+                <div class="card-body">
+                    <form action="/nurse/checkhn/<%=meal[i].code%>" method="POST">
+                <div class="form-group  row">
+                    <input type="search" name="hnId" class="form-control col-md-9 " placeholder="รหัสHN" id="btn">
+                    <button id="mealalert"class="btn btn-outline-success col-md-3 sha">ยืนยัน</button>
+                </div>
+            </form>
+                </div>
+            </div>
+            <%if(messages.error == "BB"){%>
+             
+                    <script>
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเช้าก่อนอาหาร',
+                        timer:1500
+                        })
+                        setTimeout(() => {
+                           
+                            $("#<%=meal[0].code%>1").toggle();
+                            $("#allmeal").hide();
+  
+   $("input").focus();                      }, 1000);
+                        </script>
+         <%}%>
+         <%if(messages.error == "AB"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                 text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเช้าหลังอาหาร',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[1].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+        <%}%>
+        <%if(messages.error == "BL"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเที่ยงก่อนอาหาร',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[2].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+  <%}%>
+  <%if(messages.error == "AL"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเที่ยงหลังอาหาร',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[3].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+  <%}%>
+  <%if(messages.error == "BD"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเย็นก่อนอาหาร',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[4].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+  <%}%>
+  <%if(messages.error == "AD"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อเย็นหลังอาหาร',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[5].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+  <%}%>
+  <%if(messages.error == "BE"){%>
+             
+             <script>
+                 Swal.fire({
+                 icon: 'error',
+                 title: 'ผู้ป่วยรายนี้ไม่มีรายการยา',
+                        text: ' ผู้ป่วยรายนี้ไม่มีรายการยามื้อก่อนนอน',
+                 timer:1000
+                 })
+                 setTimeout(() => {
+                   
+                     $("#<%=meal[6].code%>1").toggle();
+                     $("#allmeal").toggle();
+                      $("input").focus();
+                 }, 1000);
+                 </script>
+  <%}%>
+        </div>
+            </div>
+        
+        
+
+    </div>
+
+  
+
+
+    <%} %>
+    <hr>
+
+
+
+
+
+
+    
+    
+        <div class=" row showmeal  ">
+            
+            <% for (let i = 0; i < meal.length; i++) {%>
+        <% meal[i].data.forEach(k => {%>
+       
+        <div class=" col-md-3 collapse " id="<%=k.meal%>" >
+            <a href="/nurse/infobymeal/<%=k.bed%>/<%=k.meal%>" id="showmeal">
+                <div class="card-trolley shadow mt-1 bg-green text-dark">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/images/hospital.png" alt="" srcset="">
+                            </div>
+                            <div class="col-md-9">
+                                <label class="card-text">ผู้ป่วย:<%=k.hnId%></label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <%}); %>
+        
+        <%} %>
+        </div>
+  
+       
+    
+    <!--แสดงผู้ป่วยทั้งหมด-->
+    <div class=" row showall " >
+        <% for (let i = 0; i < fullhn.length; i++) {%>
+        <div class=" col-md-3 collapse " id="allpatient" >
+            <a href="/nurse/info/<%=fullhn[i].bed%>">
+                <div class="card-trolley shadow mt-1 bg-green text-dark">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/images/hospital.png" alt="" srcset="">
+                            </div>
+                            <div class="col-md-9">
+                                <label class="card-text">ผู้ป่วย:<%=fullhn[i].hnId%></label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+       
+
+        <%} %>
+    </div>
+    </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $("input").focus();
+        $("#btn").click(function () {
+            $(".drug").hide();
+
+        });
+        // $("#btnshow").click(function () {
+        //     $(".btnhide").hide();
+
+        // });
+        // $("#sub2").click(function () {
+        //     $(".showall").hide();
+
+        // });
+    //   $("#hide").click(function () {
+    //     $("#allmeal").toggle();
+    //     $("#BB1").hide();
+    //     });
+        // $("#sub2").click(function () {
+        // $("#BB1").show();
+        // $("#allmeal").hide();
+        // });
+        
+
+
+        // $("#mealalert").click(function () {
+         
+        // });
+      
+       
+        
+    });
+    
+    
+    </script>
+
+</html>
