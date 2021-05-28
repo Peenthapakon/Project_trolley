@@ -77,10 +77,12 @@ Step 3 ตั้งค่า databases
 ![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
 ![image](https://user-images.githubusercontent.com/73109808/119989191-18db9780-bff1-11eb-9b78-79d1379cc6a8.png)
 
+Step 4 เข้าสูระบบรถเข็นจ่ายยา
+- localhost:3000/
+Step 5 เพิ่มผู้ใช้ประเภท admin
+- localhost:3000/users/add
 
 
-Step 4 
-Step 5 
 Step 6 
 Step 7 
 Step 8 
