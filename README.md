@@ -66,8 +66,8 @@ git clone https://github.com/Peenthapakon/Project_trolley.git
   
 Step 2 Start project
 - cd 
-- sudo npm i
-- npm i
+- sudo npm install 
+- sudo npm insatll nodemon
 Step 3 
 Step 4 
 Step 5 
