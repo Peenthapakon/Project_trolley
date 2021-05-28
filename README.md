@@ -73,8 +73,8 @@ Step 2 Start project
 
 Step 3 ตั้งค่า databases 
 - แฟ้ม lib , config แก้ไขรหัสผ่าน database 
-![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
 
+![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
 ![image](https://user-images.githubusercontent.com/73109808/119989191-18db9780-bff1-11eb-9b78-79d1379cc6a8.png)
 
 
