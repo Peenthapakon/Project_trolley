@@ -32,14 +32,14 @@ function send_bt(codebox,number) {
           } 
 
           let tray1 = result[0].substr(6,1)
-          let tray2 = result[1].substr(6,1)
+         // let tray2 = result[1].substr(6,1)
           // let tray3 = result[2].substr(6,1)
           // let tray4 = result[3].substr(6,1)
           // let tray5 = result[4].substr(6,1)
           const rfcomm = 
               {
                   tray1:tray1,
-                  tray2:tray2,
+                //  tray2:tray2,
                   // tray3:tray3,
                   // tray4:tray4,
                   // tray5:tray5
