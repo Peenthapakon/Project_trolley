@@ -111,6 +111,7 @@ module.exports = connection;
 ```
 
 Step 4 เข้าสูระบบรถเข็นจ่ายยา
+- sudo npm start
 - localhost:3000/
 
 Step 5 เพิ่มผู้ใช้ประเภท admin
