@@ -28,7 +28,7 @@ Step 3 ตั้งค่า MySQL Server
 - sudo mysql_secure_installation
 - ![image](https://user-images.githubusercontent.com/73109808/119920829-27956080-bf97-11eb-8eda-331ae2ece5b5.png)
 
-Step 4 สร้างUser
+Step 4 สร้างUser และให้สิทธิ์ user สำหรับ login Phpmyadmin
 - sudo mysql -u root -p
 - USE mysql;
 ```bash
