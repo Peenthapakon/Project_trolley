@@ -72,20 +72,48 @@ Step 2 Start project
 - sudo npm insatll bcrypt
 
 Step 3 ตั้งค่า databases 
-- แฟ้ม lib , config แก้ไขรหัสผ่าน database 
+- แก้ไขไฟล์ db ในแฟ้ม config 
+```bash
+module.exports = {
+    HOST: "localhost",
+    USER: "root",
+    PASSWORD: "",
+    DB: "test",
+    dialect: "mysql",
+    charset : 'utf8',
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  };
+```
+- แก้ไขไฟล์ db ใน แฟ้ม lib 
+```bash
+let mysql = require('mysql');
+let connection = mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"test",
+    charset : 'utf8'
 
-![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
-![image](https://user-images.githubusercontent.com/73109808/119989191-18db9780-bff1-11eb-9b78-79d1379cc6a8.png)
+})
+connection.connect((err)=>{
+    if(!!err){
+        console.log(err);
+    }else{
+        console.log("Connected...");
+    }
+})
+module.exports = connection;
+```
 
 Step 4 เข้าสูระบบรถเข็นจ่ายยา
+- $ sudo npm start
 - localhost:3000/
+
 Step 5 เพิ่มผู้ใช้ประเภท admin
 - localhost:3000/users/add
-
-
-Step 6 
-Step 7 
-Step 8 
-Step 9 
-
 
