@@ -60,7 +60,10 @@ Step 1 Clone ไฟล์ Project
 git clone https://github.com/Peenthapakon/Project_trolley.git
 ```
   
-Step 2
+Step 2 Start project
+- cd 
+- sudo npm i
+- npm i
 Step 3 
 Step 4 
 Step 5 
