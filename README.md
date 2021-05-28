@@ -34,6 +34,7 @@ Step 4 สร้างUser
 - GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
 - FLUSH PRIVILEGES;
 - EXIT;
+- 
 Step 5 ติดตั้ง Phpmyadmin
 - sudo apt-get install phpMyAdmin
 - sudo apt install php libapache2modphp
