@@ -48,7 +48,7 @@ Step 6 ตั้งค่า Phpmyadmin
 Step 1 restart Apache
 - sudo service apache2 restart
 Step 2 ทดสอบ PhpMyadmin
-- /http://localhost/phpmyadmin/index.php
+- http://localhost/phpmyadmin/index.php
 
 # 4. Deploy Project
 Step 1 Clone ไฟล์ Project 
