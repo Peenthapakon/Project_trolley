@@ -75,10 +75,10 @@ Step 3 ตั้งค่า databases
 - แก้ไขไฟล์ db ในแฟ้ม config 
 ```bash
 module.exports = {
-    HOST: "localhost",
-    USER: "root",
-    PASSWORD: "",
-    DB: "test",
+    HOST: "localhost", // ชื่อ Host 127.0.0.1
+    USER: "root", // ชื่อสำหรับ login phpmyadmin
+    PASSWORD: "", // รหัสสำหรับ login phpmyadmin
+    DB: "test", // ชื่อ ฐานข้อมูล ใน phpmyadmin
     dialect: "mysql",
     charset : 'utf8',
     pool: {
@@ -93,10 +93,10 @@ module.exports = {
 ```bash
 let mysql = require('mysql');
 let connection = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"test",
+    host:"localhost", // ชื่อ Host 127.0.0.1
+    user:"root",  // ชื่อสำหรับ login phpmyadmin
+    password:"", // รหัสสำหรับ login phpmyadmin
+    database:"test", // ชื่อ ฐานข้อมูล ใน phpmyadmin
     charset : 'utf8'
 
 })
