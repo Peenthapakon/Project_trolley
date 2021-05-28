@@ -117,3 +117,5 @@ Step 4 เข้าสูระบบรถเข็นจ่ายยา
 Step 5 เพิ่มผู้ใช้ประเภท admin
 - localhost:3000/users/add
 
+Step 6 login ระบบรถเข็นจ่ายยา ด้วย user admin
+
