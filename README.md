@@ -50,6 +50,7 @@ Step 6 ตั้งค่า Phpmyadmin
 # 3. Connect PhpMyadmin
 Step 1 restart Apache
 - sudo service apache2 restart
+
 Step 2 ทดสอบ PhpMyadmin
 - http://localhost/phpmyadmin/index.php
 
