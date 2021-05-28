@@ -69,9 +69,11 @@ Step 2 Start project
 - sudo npm install 
 - sudo npm insatll nodemon
 - sudo npm insatll bcrypt
+
 Step 3 ตั้งค่า databases 
 - แฟ้ม lib , config แก้ไขรหัสผ่าน database 
-- 
+
+
 Step 4 
 Step 5 
 Step 6 
