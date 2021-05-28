@@ -505,13 +505,13 @@ router.get('/reportdrug', (req, res, next) => {
 router.get('/openalldrawer', (req, res, next) => {
     if (req.session.loggedin && req.session.type == 1 ||req.session.type == 'admin') {
         send_bt("A",10)  
-        send_bt('B',10)
+        //send_bt('B',10)
         setTimeout(() => {
             // send_bt('C',10)
             // send_bt('D',10)
             // send_bt('E',10)
         }, 1000);
-     
+         req.flash('success','good')
         res.redirect('/trolley/reportdrug')
        
       
