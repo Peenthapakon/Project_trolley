@@ -54,6 +54,7 @@ Step 1 restart Apache
 Step 2 ทดสอบ PhpMyadmin
 - http://localhost/phpmyadmin/index.php
 
+Step 3 สร้าง database ตามด้วยชื่อที่ต้องการ จากนั้นค่อยกำหนดชื่อ Database ใน Deploy Project Step ที่ 3 
 # 4. Deploy Project
 Step 1 Clone ไฟล์ Project 
 - คัดที่อยู่ไฟล์ project บน github
