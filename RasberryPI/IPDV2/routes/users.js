@@ -39,7 +39,7 @@ router.post('/login',[
       if (results.length > 0){
         switch (results[0].type) {
           case 'admin':
-            if (bcrypt.compareSync(password, results[0].password)) {
+            if (results[0].type == 'admin') {
               req.session.loggedin = true;
               req.session.type = results[0].type
               req.session.username = results[0].username;
