@@ -22,7 +22,7 @@ Step 1 ติดตั้ง Apache 2
 - sudo apt-get install apache2 php 
 
 Step 2 ติดตั้ง MySQL Server
-- sudo apt-get install maraidbserver
+- sudo apt-get install mariadb-server
 
 Step 3 ตั้งค่า MySQL Server
 - sudo mysql_secure_installation
