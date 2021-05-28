@@ -38,7 +38,7 @@ Step 4 สร้างUser
 - EXIT;
 
 Step 5 ติดตั้ง Phpmyadmin
-- sudo apt-get install phpMyAdmin
+- sudo apt-get install phpmyadmin
 - sudo apt install php libapache2modphp
 
 Step 6 ตั้งค่า Phpmyadmin
