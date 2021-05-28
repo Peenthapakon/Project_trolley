@@ -59,14 +59,14 @@ Step 1 Clone ไฟล์ Project
 - คัดที่อยู่ไฟล์ project บน github
 - ![image](https://user-images.githubusercontent.com/73109808/119922222-95db2280-bf99-11eb-9de7-632940c4d7cc.png)
 - เปิด Terminal บนหน้าจอ พิมพ์คำสั่ง
-- sudo apt install git 
+- sudo apt install git  ติดตั้ง git 
 - $ git clone ตามด้วย URL
 ```bash
 git clone https://github.com/Peenthapakon/Project_trolley.git
 ```
   
 Step 2 Start project
-- cd 
+- เข้่าไปยัง folder คำสั่ง cd Project_trolley/web-app/IPDV2
 - sudo npm install 
 - sudo npm insatll nodemon
 - sudo npm insatll bcrypt
