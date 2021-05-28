@@ -15,9 +15,15 @@ Step 2: Add Node.js APT Repository
 Step 3: Install Node.js 12 
 - sudo apt -y install nodejs
 
-Step 4: nodejs -version
+Step 4: check -version
 - node --version
 # 2. Install Apache Mariadb Phpmyadmin
+Step 1
+Step 2
+Step 3
+Step 4
+Step 5
+Step 6
 # 3. Config Databases
 # 4. Connect PhpMyadmin
 # 3. Deploy Project
