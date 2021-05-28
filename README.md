@@ -28,7 +28,7 @@ Step 3 ตั้งค่า MySQL Server
 - sudo mysql_secure_installation
 - ![image](https://user-images.githubusercontent.com/73109808/119920829-27956080-bf97-11eb-8eda-331ae2ece5b5.png)
 
-Step 4 สร้างUser
+Step 4 สร้างUser และให้สิทธิ์ user สำหรับ login Phpmyadmin
 - sudo mysql -u root -p
 - USE mysql;
 ```bash
@@ -59,26 +59,30 @@ Step 1 Clone ไฟล์ Project
 - คัดที่อยู่ไฟล์ project บน github
 - ![image](https://user-images.githubusercontent.com/73109808/119922222-95db2280-bf99-11eb-9de7-632940c4d7cc.png)
 - เปิด Terminal บนหน้าจอ พิมพ์คำสั่ง
+- sudo apt install git  ติดตั้ง git 
 - $ git clone ตามด้วย URL
 ```bash
 git clone https://github.com/Peenthapakon/Project_trolley.git
 ```
   
 Step 2 Start project
-- cd 
+- เข้่าไปยัง folder คำสั่ง cd Project_trolley/web-app/IPDV2
 - sudo npm install 
 - sudo npm insatll nodemon
 - sudo npm insatll bcrypt
 
 Step 3 ตั้งค่า databases 
 - แฟ้ม lib , config แก้ไขรหัสผ่าน database 
+
 ![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
 ![image](https://user-images.githubusercontent.com/73109808/119989191-18db9780-bff1-11eb-9b78-79d1379cc6a8.png)
 
+Step 4 เข้าสูระบบรถเข็นจ่ายยา
+- localhost:3000/
+Step 5 เพิ่มผู้ใช้ประเภท admin
+- localhost:3000/users/add
 
 
-Step 4 
-Step 5 
 Step 6 
 Step 7 
 Step 8 
