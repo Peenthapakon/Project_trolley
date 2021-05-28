@@ -31,7 +31,9 @@ Step 3 ตั้งค่า MySQL Server
 Step 4 สร้างUser
 - sudo mysql -u root -p
 - USE mysql;
-- GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+```bash
+ GRANT ALL PRIVILEGES ON  *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+```
 - FLUSH PRIVILEGES;
 - EXIT;
 
