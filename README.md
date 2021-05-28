@@ -72,7 +72,7 @@ Step 2 Start project
 - sudo npm insatll bcrypt
 
 Step 3 ตั้งค่า databases 
-- แก้ไขไฟล์ db ในแฟ้ม lib , config 
+- แก้ไขไฟล์ db ในแฟ้ม config 
 ```bash
 module.exports = {
     HOST: "localhost",
@@ -88,6 +88,26 @@ module.exports = {
       idle: 10000
     }
   };
+```
+- แก้ไขไฟล์ db ใน แฟ้ม lib 
+```bash
+let mysql = require('mysql');
+let connection = mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"test",
+    charset : 'utf8'
+
+})
+connection.connect((err)=>{
+    if(!!err){
+        console.log(err);
+    }else{
+        console.log("Connected...");
+    }
+})
+module.exports = connection;
 ```
 ![image](https://user-images.githubusercontent.com/73109808/119989096-ff3a5000-bff0-11eb-926f-9bb290438ecb.png)
 ![image](https://user-images.githubusercontent.com/73109808/119989191-18db9780-bff1-11eb-9b78-79d1379cc6a8.png)
