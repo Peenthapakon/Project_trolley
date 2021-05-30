@@ -69,8 +69,8 @@ git clone https://github.com/Peenthapakon/Project_trolley.git
 Step 2 Start project
 - เข้่าไปยัง folder คำสั่ง cd Project_trolley/web-app/IPDV2
 - sudo npm install 
-- sudo npm insatll nodemon
-- sudo npm insatll bcrypt
+- sudo npm install nodemon
+- sudo npm install bcrypt
 
 Step 3 ตั้งค่า databases 
 - แก้ไขไฟล์ db ในแฟ้ม config 
